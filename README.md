@@ -16,4 +16,4 @@ Upon running the application, cryptocurrency prices are displayed.
 
 ## Version
 
-Current Version: v1.0.0
+Current Version: v1.0.1
