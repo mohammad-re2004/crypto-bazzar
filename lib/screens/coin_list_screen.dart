@@ -42,7 +42,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
                   filterLits(value);
                 },
                 decoration: InputDecoration(
-                  hintText: "اسم رمزارز سرچ کن",
+                  hintText: "اسم رمزارز سرچ  کن",
                   hintStyle: TextStyle(
                     fontFamily: "mr",
                     fontSize: 12,
