@@ -10,9 +10,6 @@ To use this application, follow these steps:
 2. Open the project in Android Studio.
 3. Run the project on an Android device or emulator 
 
-## Usage
-
-Upon running the application, cryptocurrency prices are displayed.
 
 ## Version
 
