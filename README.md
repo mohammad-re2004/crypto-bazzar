@@ -5,6 +5,7 @@ Crypto Bazaar is an Android application that displays Cryptocurrency Prices
 
 
 
+
 #Getting Started
 
 
