@@ -1,48 +1,114 @@
-💰 Crypto Bazaar 
+# Crypto Bazaar
 
-A Flutter-based cryptocurrency market application that displays real-time cryptocurrency prices through API integration.
+A Flutter cryptocurrency market app that shows live asset prices, 24h change, and a fast coin search.
 
-Crypto Bazaar is a simple and practical mobile application built with Flutter and Dart, designed to provide users with an easy way to view cryptocurrency market information.
+<p align="center">
+  <img src="assets/images/logo.png" alt="Crypto Bazaar logo" width="160" />
+</p>
 
-📱 Features 📊 Display cryptocurrency prices 🔄 Fetch cryptocurrency data from an API 🌐 HTTP/API communication ⏳ Loading indicators while fetching data 📱 Mobile-friendly user interface 🎨 Custom application assets and fonts 🛠️ Technologies Technology Usage Flutter Cross-platform application development Dart Programming language HTTP API requests Dio HTTP client and network communication Flutter Spinkit Loading animations Material Design UI components 🏗️ Project Structure crypto-bazzar/ │ ├── android/ # Android-specific files ├── ios/ # iOS-specific files ├── linux/ # Linux-specific files ├── macos/ # macOS-specific files ├── web/ # Web-specific files ├── windows/ # Windows-specific files │ ├── assets/ │ └── images/ # Application images │ ├── fonts/ # Custom fonts │ ├── lib/ # Main Flutter source code │ ├── test/ # Tests │ ├── pubspec.yaml # Project dependencies and configuration └── README.md 🚀 Getting Started Prerequisites 
+## About
 
-Make sure you have the following installed:
+Crypto Bazaar loads a list of digital assets from the public [CoinCap](https://coincap.io) API and displays them in a dark Material UI.
 
-Flutter SDK Dart SDK Android Studio or another Flutter-compatible IDE An Android emulator or physical Android device Installation Clone the repository: git clone https://github.com/mohammad-re2004/crypto-bazzar.git Navigate to the project directory: cd crypto-bazzar Install the dependencies: flutter pub get Run the application: flutter run 🌐 API & Networking 
+The first screen is a splash view with the app logo and a loading animation. After the request succeeds, the app opens the market list.
 
-The application communicates with external APIs to retrieve cryptocurrency market information.
+## Features
 
-Network communication is implemented using Flutter HTTP clients such as:
+- Rank, name, symbol, and USD price for each asset
+- 24h change with green / red color and trend icons
+- Live search by coin name
+- Pull-to-refresh (`RefreshIndicator`)
+- Splash screen with `flutter_spinkit`
+- Custom font (`mr` / `fonts/mh.ttf`)
+- Shared dark color palette in `lib/data/constant/constants.dart`
 
-http dio 
+## Tech stack
 
-The project therefore demonstrates the basic implementation of REST API communication in Flutter, including sending requests and processing API responses.
+| Tool | Role |
+| --- | --- |
+| Flutter / Dart | UI and app logic |
+| Dio | HTTP client for CoinCap |
+| flutter_spinkit | Loading animation |
+| Material Design | UI components |
 
-📸 Screenshots 
+## Project structure
 
-Add application screenshots here to showcase the user interface.
+```
+crypto-bazzar/
+├── lib/
+│   ├── main.dart
+│   ├── data/
+│   │   ├── constant/constants.dart   # colors
+│   │   └── model/crypto.dart         # asset model
+│   └── screens/
+│       ├── home_screen.dart          # splash + first fetch
+│       └── coin_list_screen.dart     # list, search, refresh
+├── assets/images/
+├── fonts/
+├── android/ ios/ web/ linux/ macos/ windows/
+└── pubspec.yaml
+```
 
-Example:
+## Prerequisites
 
-screenshots/ ├── home.png ├── market.png └── details.png 
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (project SDK: `>=2.17.0 <3.0.0`)
+- Android Studio, VS Code, or another Flutter-ready IDE
+- An emulator or a physical device
 
-You can then add them to this section:
+## Getting started
 
-![Home Screen](screenshots/home.png) 🎯 Purpose 
+```bash
+git clone https://github.com/mohammad-re2004/crypto-bazzar.git
+cd crypto-bazzar
+flutter pub get
+flutter run
+```
 
-This project was developed as a practical Flutter application to demonstrate:
+Web:
 
-Flutter application development Working with REST APIs Handling asynchronous network requests Building mobile user interfaces Managing external dependencies Structuring a multi-platform Flutter project 🔮 Future Improvements 
+```bash
+flutter run -d chrome
+```
 
-Possible improvements for future versions include:
+## API
 
-[ ] Add cryptocurrency search [ ] Add cryptocurrency details page [ ] Add price charts and historical data [ ] Add favorite cryptocurrencies [ ] Add automatic data refresh [ ] Improve error handling [ ] Add offline/cache support [ ] Improve application architecture [ ] Add unit and widget tests [ ] Add dark mode 👨‍💻 Author 
+Market data comes from CoinCap:
 
-Mohammad Ebadi
+- Initial load in `home_screen.dart` uses `rest.coincap.io/v3/assets`
+- Refresh and empty-search reload in `coin_list_screen.dart` use `api.coincap.io/v2/assets`
 
-Flutter & Mobile Application Developer
+`Crypto.fromMapJson` maps fields such as `rank`, `name`, `symbol`, `priceUsd`, and `changePercent24Hr`.
 
-GitHub: @mohammad-re2004 📄 License 
+> Do not commit API keys. Read them from environment variables or a gitignored local file.
 
-This project is available for educational and personal use.
+## Screenshots
 
+Add captures under `screenshots/` and link them here:
+
+```
+screenshots/
+├── splash.png
+└── market.png
+```
+
+## Roadmap
+
+- Coin detail page
+- Price charts and history
+- Favorites
+- Periodic auto-refresh
+- Offline cache
+- Stronger network error handling
+- Unit and widget tests
+- Split the API layer from the UI
+- Move `flutter_spinkit` from `dev_dependencies` to `dependencies` in `pubspec.yaml`
+
+## Author
+
+**Mohammad Ebadi**  
+Flutter & mobile developer  
+GitHub: [@mohammad-re2004](https://github.com/mohammad-re2004)
+
+## License
+
+Available for educational and personal use.
