@@ -105,7 +105,7 @@ screenshots/
 
 ## Author
 
-**Mohammad Ebadi**  
+**Mohammadreza Ebadi**  
 Flutter & mobile developer  
 GitHub: [@mohammad-re2004](https://github.com/mohammad-re2004)
 
